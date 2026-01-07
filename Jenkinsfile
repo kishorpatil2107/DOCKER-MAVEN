@@ -46,7 +46,7 @@ pipeline {
         stage('Test Docker Image') {
             steps {
                 sh """
-                docker run -d --name test-container -p 8080:8080 ${DOCKER_IMAGE}:${DOCKER_TAG}
+                docker run -d --name test-container -p 8082:8080 ${DOCKER_IMAGE}:${DOCKER_TAG}
                 sleep 10
                 curl -f http://localhost:8080/ || exit 1
                 docker stop test-container
